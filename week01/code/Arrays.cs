@@ -13,8 +13,26 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        //The inputs: starting number, and length of array
+        //If length <= 0 return empty array
+        //Create an array of size "length"
+        //In a for loop start with 0 and iterate the length of the "length" input, with each iteration by i + 1
+        //Add the element to the new array
+        //Return the array
+
+        if (length <= 0) return Array.Empty<double>();
+
+        double[] result = new double[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1);
+        }
+
+        return result;
     }
+
+  
 
     /// <summary>
     /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
@@ -26,8 +44,21 @@ public static class Arrays
     public static void RotateListRight(List<int> data, int amount)
     {
         // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+        //Check if the data is null or empty
+        //Normalize the amount so it's within 0..Count-1
+        //Copy the amount from the end of the List
+       //Remove the amount of elements from the end of the List by using the .RemoveRange method
+       //Add the same amount to the from of the list by .insertRange() to the begging of the List. 
+
+       
+        if (data == null || data.Count == 0) return;
+
+        amount %= data.Count;
+        if (amount == 0) return;
+
+        List<int> end = data.GetRange(data.Count - amount, amount);
+        data.RemoveRange(data.Count - amount, amount);
+        data.InsertRange(0, end);
+    
     }
 }
