@@ -8,7 +8,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: 
     // Expected Result: 
-    // Defect(s) Found: 
+    // Defect(s) Found: The original Dequeue loop stopped at _queue.Count - 1, so it never checked the last item in the queue for highest priority. Additionally, the original code did not remove the high-priority element after returning it, leaving the queue in an incorrect state.
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
@@ -23,7 +23,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: 
     // Expected Result: 
-    // Defect(s) Found: 
+    // Defect(s) Found: The priority comparison used '>=' which caused the most recently added item with the highest priority to be selected instead of the first one, breaking FIFO behavior for tied priorities.
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
