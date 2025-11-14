@@ -12,7 +12,12 @@ public class PriorityQueueTests
     public void TestPriorityQueue_1()
     {
         var priorityQueue = new PriorityQueue();
-        Assert.Fail("Implement the test case and then remove this.");
+         priorityQueue.Enqueue("A", 1);
+         priorityQueue.Enqueue("B", 5);
+         priorityQueue.Enqueue("C", 3);
+
+         var result = priorityQueue.Dequeue();
+         Assert.AreEqual("B", result);
     }
 
     [TestMethod]
@@ -22,7 +27,11 @@ public class PriorityQueueTests
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
-        Assert.Fail("Implement the test case and then remove this.");
+        priorityQueue.Enqueue("A", 10);
+        priorityQueue.Enqueue("B", 10);
+
+        var result = priorityQueue.Dequeue();
+        Assert.AreEqual("A", result);
     }
 
     // Add more test cases as needed below.
